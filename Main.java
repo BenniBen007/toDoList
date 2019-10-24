@@ -151,8 +151,13 @@ public class Main{
                     }
                     break;
                 case 5: 
-                    //Sinon j'affiche mes taches
-                    maListe.getListeTachesLogs();
+                    //Je vais afficher un message si je n'ai pas de logs
+                    if(maListe.getNombreDeTacheLogs() == 0){
+                        System.out.println("Aucun log.");
+                    }else{
+                        //Sinon j'affiche mes taches
+                        maListe.getListeTachesLogs();
+                    }
                     break;
                 case 6:
                     arretMenu = true;

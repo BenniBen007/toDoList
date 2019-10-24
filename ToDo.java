@@ -54,6 +54,8 @@ public class ToDo{
             Taches myElement = it.next();
             //Si le nom de ma tache est egal a mon de tache
             if(myElement.getNomTache().equals(_nomTache)){
+                //Je vais mettre dans la log la tache supprimée
+                mesTachesLogs.add("Suppression de la tache "+_nomTache);
                 //alors je passe a true le result
                 result = true;
                 //Et je supprime cette element
@@ -64,11 +66,15 @@ public class ToDo{
         return result;
     }
 
-    //Cette méthode permet de remonte la nombre de tache que je possde
+    //Cette méthode permet de remonter le nombre de tache
     public int getNombreDeTache(){
         return mesTaches.size();
     }
 
+    //Cette méthode permet de remonter le nombre de logs 
+    public int getNombreDeTacheLogs(){
+        return mesTachesLogs.size();
+    }
 
     //Cette méthode permet d'afficher une tache en particulier
     public String getTacheEnParticulier(String _nomTache){
