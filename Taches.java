@@ -1,9 +1,9 @@
 public class Taches{
 
     //Déclarations des attributs
-    String nom;
-	String description;
-	boolean etat;
+    private String nom;
+	private String description;
+	private boolean etat;
 
     //Création du constructeur
     public Taches(String _nom, String _description, boolean _etat){

@@ -3,8 +3,8 @@ import java.util.*;
 public class ToDo{
 
     //Déclaration des attributs
-    String nomToDoList;
-    Collection<Taches> mesTaches;
+    private String nomToDoList;
+    private Collection<Taches> mesTaches;
 
     //Création du constructeur
     public ToDo(String _nomtoDoList){
