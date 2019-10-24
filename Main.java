@@ -21,7 +21,8 @@ public class Main{
             System.out.println("2. Modifier une tache");
             System.out.println("3. Supprimer une tache");
             System.out.println("4. Afficher les taches");
-            System.out.println("5. Quitter");
+            System.out.println("5. Afficher les taches (logs)");
+            System.out.println("6. Quitter");
 
             switch(sc.nextInt()){
                 case 1 : 
@@ -78,9 +79,50 @@ public class Main{
                     }
                     break;
                 case 2 : 
-
+                    //Je remets a zero mon scanner
+                    sc = new Scanner(System.in);
+                    //Je demande à l'utilisateur d'entrée le nom de la tache a modifier
+                    System.out.println("Entrez le nom de la tache a modifier :");
+                    String recupTacheEntreePourEdit = sc.nextLine();
+                    //Je vais chercher les informations de la tache en fonction de son nom 
+                    System.out.println(maListe.getTacheEnParticulier(recupTacheEntreePourEdit));
+                    //Je vais demander à l'utilisateur, si il veut modifier le nom ou la description ou l'etat
+                    System.out.println("Vous voulez modifier :");
+                    System.out.println("1. Le nom");
+                    System.out.println("2. La description");
+                    System.out.println("3. L'état");
+                    switch(sc.nextInt()){
+                        case 1:
+                            sc = new Scanner(System.in);
+                            System.out.println("Entrez le nouveau nom :");
+                            //Je change le nom de la tache
+                            if(maListe.editNomTache(recupTacheEntreePourEdit, sc.nextLine()) == true){
+                                System.out.println("Mise à jour ok");
+                            }else{
+                                System.out.println("Erreur lors de modification");
+                            }
+                            break;
+                        case 2:
+                            sc = new Scanner(System.in);
+                            System.out.println("Entrez la nouvelle description :");
+                            //Je change le nom de la tache
+                            if(maListe.editDescriptionTache(recupTacheEntreePourEdit, sc.nextLine()) == true){
+                                System.out.println("Mise à jour ok");
+                            }else{
+                                System.out.println("Erreur lors de modification");
+                            }
+                            break;
+                        case 3: 
+                            sc = new Scanner(System.in);
+                            System.out.println("Entrez le nouvelle état : (1 = finis, 0 = a faire)");
+                            sc.nextInt();
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case 3 : 
+                    //Je remets a zero mon scanner
                     sc = new Scanner(System.in);
                     //Je demande à l'utilisateur d'entrée le nom de la tache a supprimer
                     System.out.println("Entrez le nom de la tache a supprimer :");
@@ -103,7 +145,11 @@ public class Main{
                         maListe.getListeTaches();
                     }
                     break;
-                case 5:
+                case 5: 
+                    //Sinon j'affiche mes taches
+                    maListe.getListeTachesLogs();
+                    break;
+                case 6:
                     arretMenu = true;
                     sc.close();
                     break;
