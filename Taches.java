@@ -46,7 +46,18 @@ public class Taches{
     //Re-définition du toString
     @Override
     public String toString(){
-        return "Nom : "+nom+" - Description : "+description+" - état : "+etat;
+        //Je vais modifier true et false
+        //par terminé ou a faire 
+        //pour rendre plus propre
+        String etatPropre = "";
+        //Si j'ai true alors je mets Terminé
+        if(etat == true){
+            etatPropre = "Terminé";
+        }else{
+            //Sinon je mets a faire
+            etatPropre = "A faire";
+        }
+        return "Nom : "+nom+" - Description : "+description+" - état : "+etatPropre;
     }
     
 }
