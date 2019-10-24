@@ -115,7 +115,12 @@ public class Main{
                         case 3: 
                             sc = new Scanner(System.in);
                             System.out.println("Entrez le nouvelle état : (1 = finis, 0 = a faire)");
-                            sc.nextInt();
+                            //Je change le nom de la tache
+                            if(maListe.editEtatTache(recupTacheEntreePourEdit, sc.nextInt()) == true){
+                                System.out.println("Mise à jour ok");
+                            }else{
+                                System.out.println("Erreur lors de modification");
+                            }
                             break;
                         default:
                             break;

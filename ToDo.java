@@ -5,7 +5,7 @@ public class ToDo{
     //Déclaration des attributs
     private String nomToDoList;
     private Collection<Taches> mesTaches;
-    private Collection<Taches> mesTachesLogs;
+    private Collection<String> mesTachesLogs;
 
     //Création du constructeur
     public ToDo(String _nomtoDoList){
@@ -34,11 +34,11 @@ public class ToDo{
 
     //Cette méthode permet de lister les logs des modifications
     public void getListeTachesLogs(){
-        Iterator<Taches> it = mesTachesLogs.iterator();
+        Iterator<String> it = mesTachesLogs.iterator();
 
         //Je boucle tant que j'ai element
         while(it.hasNext()){
-            Taches myElement = it.next();
+            String myElement = it.next();
             System.out.println(myElement);
         }
     }
@@ -102,7 +102,7 @@ public class ToDo{
             //Si le nom de ma tache est egal a mon de tache
             if(myElement.getNomTache().equals(_nomTacheBase)){
                 //J'ajoute la tache dans les logs
-                mesTachesLogs.add(myElement);
+                mesTachesLogs.add("Changement de nom pour la tache "+_nomTacheBase+" en "+_nouveaunomTache);
                 //Je mets a jour le nom de la tache
                 myElement.setNomTache(_nouveaunomTache);
                 //Je retourne true
@@ -127,9 +127,42 @@ public class ToDo{
             //Si le nom de ma tache est egal a mon de tache
             if(myElement.getNomTache().equals(_nomTacheBase)){
                 //J'ajoute la tache dans les logs
-                mesTachesLogs.add(myElement);
-                //Je mets a jour le nom de la tache
+                mesTachesLogs.add("Changement de la description de la tache "+_nomTacheBase+" : de "+myElement.getDescriptionTache()+ " en "+_nouvelleDescription);
+                //Je mets a jour la description de la tache
                 myElement.setDescriptionTache(_nouvelleDescription);
+                //Je retourne true
+                result = true;
+            }
+        }
+
+        return result;
+    }
+
+    public boolean editEtatTache(String _nomTacheBase, int _nouvelleEtat){
+        //Cette variable va contenir le resultat de la méthode
+        //Par défaut elle est sur false
+        boolean result = false;
+        //Cette variable me permet de stocker mon etat
+        boolean monEtatNouveau = false;
+
+        //Je convertis mon int en bool (a l'ancienne)
+        if(_nouvelleEtat == 0){
+            monEtatNouveau = false;
+        }else{
+            monEtatNouveau = true;
+        }
+
+        Iterator<Taches> it = mesTaches.iterator();
+
+        //Je boucle tant que j'ai element
+        while(it.hasNext()){
+            Taches myElement = it.next();
+            //Si le nom de ma tache est egal a mon de tache
+            if(myElement.getNomTache().equals(_nomTacheBase)){
+                //J'ajoute la tache dans les logs
+                mesTachesLogs.add("Changement de l'état de la tache "+_nomTacheBase+" de : "+myElement.getEtatTache()+" en "+monEtatNouveau);
+                //Je mets a jour l'état de la tache
+                myElement.setEtatTache(monEtatNouveau);
                 //Je retourne true
                 result = true;
             }
