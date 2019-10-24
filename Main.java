@@ -105,6 +105,7 @@ public class Main{
                     break;
                 case 5:
                     arretMenu = true;
+                    sc.close();
                     break;
                 default:
                     System.out.println("Entrez un choix entre 1 et 5"); 
