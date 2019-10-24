@@ -78,13 +78,30 @@ public class Main{
                     }
                     break;
                 case 2 : 
-                    //System.out.println("Sous menu 1-2"); 
+
                     break;
                 case 3 : 
-                    //arret = true; 
+                    sc = new Scanner(System.in);
+                    //Je demande à l'utilisateur d'entrée le nom de la tache a supprimer
+                    System.out.println("Entrez le nom de la tache a supprimer :");
+                    String recupTacheEntree = sc.nextLine();
+                    //Je supprime la tache
+                    if(maListe.removeTache(recupTacheEntree) == true){
+                        //Si je trouve la tache, j'affiche ce message
+                        System.out.println("La tache "+recupTacheEntree+" est supprimée");
+                    }else{
+                        //Si je ne trouve pas le nom de la tache alors j'affiche ce message
+                        System.out.println("La tache n'existe pas.");
+                    }
                     break;
                 case 4: 
-                    maListe.getListeTaches();
+                    //Je vais afficher un message si je n'ai pas de tache
+                    if(maListe.getNombreDeTache() == 0){
+                        System.out.println("Aucune tache.");
+                    }else{
+                        //Sinon j'affiche mes taches
+                        maListe.getListeTaches();
+                    }
                     break;
                 case 5:
                     arretMenu = true;
