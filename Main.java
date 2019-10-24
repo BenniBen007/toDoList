@@ -15,7 +15,7 @@ public class Main{
 
         //Je renvoi une ligne pour mieux voir
         System.out.println("-------------------------------------------");
-        
+
         //Je vais demander à l'utilisateur de mettre une tache
         //Cette variable me permet de boucler, si la personne veut remettre une tache 
         //par la suite ( en continu )
@@ -68,13 +68,41 @@ public class Main{
             
         }
 
-        //Je ferme le scanner
-        sc.close();
+        //Création du menu
+        boolean arretMenu = false;
+        while (!arretMenu){
+            System.out.println("--------------- MENU ----------------");
+            System.out.println("1. Ajouter une tache");
+            System.out.println("2. Modifier une tache");
+            System.out.println("3. Supprimer une tache");
+            System.out.println("4. Afficher les taches");
+            System.out.println("5. Quitter");
 
-        maListe.getListeTaches();
+            switch(sc.nextInt()){
+                case 1 : 
+                    //System.out.println("Sous menu 1-1"); 
+                    break;
+                case 2 : 
+                    //System.out.println("Sous menu 1-2"); 
+                    break;
+                case 3 : 
+                    //arret = true; 
+                    break;
+                case 4: 
+                    maListe.getListeTaches();
+                    break;
+                case 5:
+                    arretMenu = true;
+                    break;
+                default:
+                    System.out.println("Entrez un choix entre 1 et 5"); 
+                    break;
+            }
 
+        }
         
 
+        
     }
 
 }
